@@ -40,32 +40,35 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return """
-               email: " + email +
-               contrasena: " + password """;
+        return "Email: " +email
+                + "\nContrasena: " +password;
     }
 
-    public static String pedirEmail() {
+    public static String pedirEmail(Usuario usuario) {
         Scanner sc = new Scanner(System.in);
-        int intentos = 0;
+        int intentos = 1;
         String email;
         do {
-            System.out.print("Email:");
-            System.out.println("");
+            System.out.print("Email: ");
             email = sc.nextLine();
             comprobarEmail(email);
+            if (comprobarEmail(email) == false) {
+                System.out.println("[!] Formato incorrecto.");
+                System.out.println(intentos + "º intento.");                
+            }
             intentos++;
         } while (comprobarEmail(email) == false && intentos <= 5);
+        usuario.setEmail(email);
         return email;
     }
 
     public static boolean comprobarEmail(String email) {
-        return email.contains("@") && (email.contains(".com") || email.contains(".es"));
+        return email.contains("@") && email.length()>=8 && (email.contains(".com") || email.contains(".es"));
     }
 
-    public static String pedirPassword() {
+    public static String pedirPassword(Usuario usuario) {
         Scanner sc = new Scanner(System.in);
-        int intentos = 0;
+        int intentos = 1;
         String password;
         do {
             System.out.println("Introduzca su contrasena.");
@@ -73,11 +76,15 @@ public class Usuario {
             password = sc.nextLine();
             comprobarPassword(password);
             if (comprobarPassword(password)==false) {
-                System.out.println("Contrasena incorrecta. Intentelo de nuevo.");
-                    System.out.println(intentos + "º intentos.");
+                System.out.println("[!]Contrasena incorrecta. Intentelo de nuevo.");
+                System.out.println("""
+                                   Por favor, asegurese de que su contrasena tiene, al menos
+                                   8 caracteres, un numero, una mayuscula, una minuscula y un caracter especial.""");
+                System.out.println(intentos+1 + "º intento.");
             }
             intentos++;
         } while (comprobarPassword(password) == false && intentos <= 5);
+        usuario.setPassword(password);
         return password;
     }
 
