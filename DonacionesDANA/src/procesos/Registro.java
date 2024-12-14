@@ -1,6 +1,6 @@
 package procesos;
 
-import objetos.Usuario;
+import util.Usuario;
 
 /**
  * La clase Registro permite registrar un nuevo usuario en la plataforma.

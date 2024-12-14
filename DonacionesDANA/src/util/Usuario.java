@@ -1,4 +1,4 @@
-package objetos;
+package util;
 
 import java.util.Scanner;
 
@@ -76,8 +76,7 @@ public class Usuario {
      */
     @Override
     public String toString() {
-        return "Email: " + email +
-               "\nContraseña: " + password;
+        return email;
     }
 
     /**
