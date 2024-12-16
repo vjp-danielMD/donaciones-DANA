@@ -12,7 +12,7 @@ import util.Usuario;
  * El menú ofrece las siguientes opciones:
  * <ul>
  * <li>1: Donar dinero.</li>
- * <li>2: Donar producto (pendiente de implementación).</li>
+ * <li>2: Donar producto.</li>
  * <li>3: Salir de la aplicación.</li>
  * </ul>
  * </p>
