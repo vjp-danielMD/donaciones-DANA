@@ -8,7 +8,7 @@ import java.util.Scanner;
  * El sistema calcula y muestra el total donado acumulado y ofrece información
  * sobre el impacto de cada donación.
  * 
- * @author Víctor
+ * @author daniel
  */
 public class DonacionesDinero {
     
