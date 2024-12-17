@@ -2,6 +2,12 @@ package util;
 
 import java.util.Scanner;
 
+/**
+ * Clase que representa una entrega de donación, incluyendo información
+ * sobre el producto, la hora de entrega, el usuario asociado y el punto de recogida.
+ * 
+ * @author daniel
+ */
 public class Entrega {
 
     private String producto;
@@ -9,6 +15,9 @@ public class Entrega {
     private Usuario usuario;
     private String puntoRecogida;
 
+    /**
+     * Constructor por defecto que inicializa los atributos con valores predeterminados.
+     */
     public Entrega() {
         this.producto = "";
         this.hora = 0;
@@ -16,6 +25,14 @@ public class Entrega {
         this.puntoRecogida = "";
     }
 
+    /**
+     * Constructor parametrizado que inicializa todos los atributos de la entrega.
+     * 
+     * @param producto       Nombre del producto donado.
+     * @param hora           Hora de la entrega (en formato 24 horas).
+     * @param usuario        Usuario que realiza la donación.
+     * @param puntoRecogida  Punto de recogida de la donación.
+     */
     public Entrega(String producto, int hora, Usuario usuario, String puntoRecogida) {
         this.producto = producto;
         this.hora = hora;
@@ -23,38 +40,85 @@ public class Entrega {
         this.puntoRecogida = puntoRecogida;
     }
 
+    /**
+     * Obtiene el nombre del producto donado.
+     * 
+     * @return Nombre del producto.
+     */
     public String getProducto() {
         return producto;
     }
 
+    /**
+     * Establece el nombre del producto donado.
+     * 
+     * @param producto Nombre del producto.
+     */
     public void setProducto(String producto) {
         this.producto = producto;
     }
 
+    /**
+     * Obtiene la hora de la entrega.
+     * 
+     * @return Hora de la entrega (formato 24 horas).
+     */
     public int getHora() {
         return hora;
     }
 
+    /**
+     * Establece la hora de la entrega.
+     * 
+     * @param hora Hora de la entrega (formato 24 horas).
+     */
     public void setHora(int hora) {
         this.hora = hora;
     }
 
+    /**
+     * Obtiene el usuario asociado a la entrega.
+     * 
+     * @return Usuario asociado.
+     */
     public Usuario getUsuario() {
         return usuario;
     }
 
+    /**
+     * Establece el usuario asociado a la entrega.
+     * 
+     * @param usuario Usuario que realiza la donación.
+     */
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
 
+    /**
+     * Obtiene el punto de recogida de la entrega.
+     * 
+     * @return Punto de recogida.
+     */
     public String getPuntoRecogida() {
         return puntoRecogida;
     }
 
+    /**
+     * Establece el punto de recogida de la entrega.
+     * 
+     * @param puntoRecogida Dirección del punto de recogida.
+     */
     public void setPuntoRecogida(String puntoRecogida) {
         this.puntoRecogida = puntoRecogida;
     }
 
+    /**
+     * Solicita al usuario que introduzca el nombre del producto a donar
+     * y lo asigna al objeto de entrega.
+     * 
+     * @param entrega Objeto {@code Entrega} en el que se asignará el producto.
+     * @return Nombre del producto introducido.
+     */
     public static String pedirNombreProducto(Entrega entrega) {
         String producto;
         Scanner entrada = new Scanner(System.in);
@@ -64,6 +128,13 @@ public class Entrega {
         return producto;
     }
 
+    /**
+     * Solicita al usuario que introduzca una hora de entrega válida y la asigna
+     * al objeto de entrega.
+     * 
+     * @param entrega Objeto {@code Entrega} en el que se asignará la hora.
+     * @return Hora de entrega introducida.
+     */
     public static int pedirHora(Entrega entrega) {
         Scanner entrada = new Scanner(System.in);
         int hora;
@@ -75,10 +146,17 @@ public class Entrega {
             }
             hora = entrada.nextInt();
         } while (hora < 7 || hora > 24);
-        entrega.setHora(hora) ;
+        entrega.setHora(hora);
         return hora;
     }
 
+    /**
+     * Presenta al usuario una lista de puntos de recogida disponibles según
+     * la hora seleccionada, permitiendo elegir uno.
+     * 
+     * @param entrega Objeto {@code Entrega} en el que se asignará el punto de recogida.
+     * @return Dirección del punto de recogida seleccionado.
+     */
     public static String seleccionarPuntoRecogida(Entrega entrega) {
         Scanner entrada = new Scanner(System.in);
         String punto1;
@@ -122,12 +200,18 @@ public class Entrega {
         }
     }
 
+    /**
+     * Devuelve una representación en forma de cadena de la entrega,
+     * incluyendo información sobre el usuario, producto, hora y punto de recogida.
+     * 
+     * @return Descripción de la entrega.
+     */
     @Override
     public String toString() {
         return "Estos son los datos de tu donacion: "
-                +"\nEntrega de: " + usuario + ": "
-                +"\nProducto: " + producto
-                +"\nHora: " + hora
-                +"\nPunto de entrega: " +puntoRecogida;
+                + "\nEntrega de: " + usuario + ": "
+                + "\nProducto: " + producto
+                + "\nHora: " + hora
+                + "\nPunto de entrega: " + puntoRecogida;
     }
-}   
+}

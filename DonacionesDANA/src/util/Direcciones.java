@@ -2,7 +2,7 @@ package util;
 
 /**
  *
- * @author Víctor
+ * @author daniel
  */
 
 public class Direcciones {
