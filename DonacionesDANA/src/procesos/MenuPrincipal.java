@@ -39,7 +39,9 @@ public class MenuPrincipal {
      */
     public static void menuPrincipal() {
         Scanner entrada = new Scanner(System.in);
+        Entrega entrega = new Entrega();
         Resumen resumen = new Resumen();
+        DonacionesDinero donacion = new DonacionesDinero();
         int opcion; // Almacena la opción seleccionada por el usuario
 
         // Bucle del menú principal
@@ -60,10 +62,10 @@ public class MenuPrincipal {
                     DonacionesDinero.menuDonarDinero();
                     break;
                 case 2:
-                    Entrega entrega = new Entrega();
+                    
                     Entrega.pedirNombreProducto(entrega);
                     Entrega.seleccionarPuntoRecogida(entrega);
-                    resumen.setResumen(entrega);
+                    resumen.setResumen(entrega, donacion);
                     break;
                 case 3:
                     // Salir del menú

@@ -56,11 +56,12 @@ public class Entrega {
     }
 
     public static String pedirNombreProducto(Entrega entrega) {
-        String producto = "";
-        System.out.print("¿Qué producto quieres donar? : ");
+        String producto;
         Scanner entrada = new Scanner(System.in);
+        System.out.print("¿Qué producto quieres donar? : ");
+        producto = entrada.nextLine();
         entrega.setProducto(producto);
-        return entrada.nextLine();
+        return producto;
     }
 
     public static int pedirHora(Entrega entrega) {

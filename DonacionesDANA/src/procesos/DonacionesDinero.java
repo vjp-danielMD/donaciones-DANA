@@ -12,15 +12,43 @@ import java.util.Scanner;
  */
 public class DonacionesDinero {
     
+    private static double donacion;        // Monto de una donación individual
+    private static double totalDonacion;   // Suma total de las donaciones realizadas
+    
     /**
      * Muestra un menú interactivo para que el usuario realice donaciones.
      * Permite seleccionar entre cantidades predefinidas o ingresar una cantidad personalizada.
      * El proceso finaliza cuando el usuario elige la opción de "volver atrás".
      */
+    
+    public DonacionesDinero() {
+        this.donacion = 0;
+        this.totalDonacion = 0;
+    }
+
+    public DonacionesDinero(double donacion, double totalDonacion) {
+        this.donacion = donacion;
+        this.totalDonacion = totalDonacion;
+    }
+
+    public double getDonacion() {
+        return donacion;
+    }
+
+    public void setDonacion(double donacion) {
+        this.donacion = donacion;
+    }
+
+    public double getTotalDonacion() {
+        return totalDonacion;
+    }
+
+    public void setTotalDonacion(double totalDonacion) {
+        this.totalDonacion = totalDonacion;
+    }
+
     public static void menuDonarDinero() {
-        Scanner entrada = new Scanner(System.in);
-        double donacion;            // Monto de una donación individual
-        double totalDonacion = 0;   // Suma total de las donaciones realizadas
+        Scanner entrada = new Scanner(System.in);         
         int opcion;                 // Opción seleccionada por el usuario
 
         // Bucle principal del menú
